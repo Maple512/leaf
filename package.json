@@ -1,16 +1,21 @@
 {
   "name": "ng-leaf",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maple512/mg-ng"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve admin",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --watchAll --runInBand",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gc": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "commit": "git cz",
-    "update-all": "ncu -u && yarn"
+    "update-all": "ncu -u && yarn",
+    "lerna": "lerna"
   },
   "private": true,
   "devDependencies": {
@@ -63,6 +68,7 @@
     "zone.js": "~0.10.3"
   },
   "dependencies": {
+    "@ngneat/spectator": "^5.9.0",
     "tslib": "^1.9.0"
   },
   "config": {

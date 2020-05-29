@@ -12,6 +12,8 @@
     "importHelpers": true,
     "target": "es2015",
     "lib": ["es2018", "dom"],
+    "typeRoots": ["node_modules/@types"],
+    "types": ["jest"],
     "paths": {
       "@leaf/ng.core": ["packages/core/src/public-api.ts"],
       "@leaf/ng.core/*": ["packages/core/src/lib/*"]
