@@ -1,6 +1,6 @@
 {
   "name": "ng-leaf",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve admin",
@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gc": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "commit": "git-cz",
-    "update-all": "ncu -u"
+    "commit": "git cz",
+    "update-all": "ncu -u && yarn"
   },
   "private": true,
   "devDependencies": {

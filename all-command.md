@@ -11,6 +11,12 @@
 1. `ng g application admin --skipInstall=true --prefix=leaf --style=less --routing=false`
 2. `ng g library core --skipInstall=true --prefix=leaf`
 
+## git cz
+
+1. `npm i -g cz-conventional-changelog`
+2. add code `"commit": "git cz"` to package.json
+3. run `npm run commit`
+
 ## changlog
 
 > reference: [git commit 、CHANGELOG 和版本发布的标准自动化](https://www.cnblogs.com/zivxiaowei/p/10089201.html)
