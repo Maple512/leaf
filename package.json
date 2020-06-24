@@ -7,7 +7,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve admin",
+    "start": "ng serve console",
     "build": "ng build",
     "test": "ng test --watchAll --runInBand",
     "lint": "ng lint",
