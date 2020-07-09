@@ -1,0 +1,22 @@
+import { ModelCommon } from '../models';
+
+export class SetLanguage {
+  static readonly type = '[Session] Set Language';
+
+  constructor(public payload: string, public dispatchAppConfiguration?: boolean) { }
+}
+export class SetTenant {
+  static readonly type = '[Session] Set Tenant';
+
+  constructor(public payload: ModelCommon.BasicItem) { }
+}
+export class ModifyOpenedTabCount {
+  static readonly type = '[Session] Modify Opened Tab Count';
+
+  constructor(public operation: 'increase' | 'decrease') { }
+}
+export class SetRemember {
+  static readonly type = '[Session] Set Remember';
+
+  constructor(public payload: boolean) { }
+}
