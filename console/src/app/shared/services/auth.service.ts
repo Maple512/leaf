@@ -5,12 +5,11 @@ import { Store } from '@ngxs/store';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { from, Observable } from 'rxjs';
 import { switchMap, tap, take } from 'rxjs/operators';
-import { GetAppConfiguration } from '../actions/config.action';
 import { SessionState } from '../states/session.state';
 import { RestService } from './rest.service';
 import { AppConfigState } from '../states/config.state';
+import { GetAppConfiguration } from '../actions';
 
-// TODO: 这里需要Config
 @Injectable({
   providedIn: 'root',
 })
@@ -48,12 +47,13 @@ export class AuthService {
 
   logout(): Observable<void> {
     const issuer = this.store.selectSnapshot(AppConfigState.getDeep('environment.oAuthConfig.issuer'));
+    const logout = this.store.selectSnapshot(AppConfigState.getApi('logout'));
 
     return this.rest
       .request(
         {
           method: 'GET',
-          url: '/api/account/logout',
+          url: logout,
         },
         null,
         issuer,

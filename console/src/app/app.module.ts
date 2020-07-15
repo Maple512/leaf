@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { RoutesModule } from './routes/routes.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '@shared';
+import { environment } from '../environments/environment';
+import { NgxsModule } from '@ngxs/store';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,12 @@ import { SharedModule } from '@shared';
     BrowserModule,
     BrowserAnimationsModule,
     RoutesModule,
-    SharedModule
+    SharedModule.forRoot({
+      environment,
+      sendNullsAsQueryParam: false,
+      skipGetAppConfiguration: false,
+    }),
+    NgxsModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

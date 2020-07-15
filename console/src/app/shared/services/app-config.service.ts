@@ -14,13 +14,17 @@ export class AppConfigService {
     return this.store.selectSnapshot(AppConfigState.getDeep('environment.application.name'));
   }
 
-  constructor(private rest: RestService, private store: Store) { }
+  constructor(
+    private rest: RestService,
+    private store: Store
+  ) { }
 
-  // TODO: 这里需要Config
   getConfiguration(): Observable<AppConfigResponse.Response> {
+    const abpConfigApi = this.store.selectSnapshot(AppConfigState.getApi('abpConfig'));
+
     const request: RestModel.Request<null> = {
       method: 'GET',
-      url: '/api/abp/application-configuration',
+      url: abpConfigApi,
     };
 
     return this.rest.request<null, AppConfigResponse.Response>(request, {

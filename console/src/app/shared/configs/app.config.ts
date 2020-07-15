@@ -14,6 +14,12 @@ export namespace AppConfig {
     oAuthConfig: AuthConfig;
     apis: Apis;
     localization?: { defaultResourceName?: string; };
+    urls: Urls;
+  }
+
+  export interface Urls {
+    login: string;
+    [key: string]: string;
   }
 
   export interface AppInfo {
@@ -22,14 +28,17 @@ export namespace AppConfig {
     description?: string;
   }
 
-  export interface ApiConfig {
-    url: string;
-    [key: string]: string;
-  }
-
   export interface Apis {
-    default: ApiConfig;
-    [key: string]: ApiConfig;
+    console: string;
+    /**
+     * default: `/api/abp/application-configuration`
+     */
+    abpConfig: string;
+    logout: string;
+    getProfile: string;
+    putProfile: string;
+    changePwd: string;
+    [key: string]: string;
   }
 
   export interface Requirements {

@@ -9,12 +9,16 @@ import {
 } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Observable } from 'rxjs';
+import { AppConfigState } from '../states';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private oauthService: OAuthService, private injector: Injector) { }
+  constructor(
+    private oauthService: OAuthService,
+    private injector: Injector,
+  ) { }
 
   canActivate(
     _: ActivatedRouteSnapshot,
@@ -28,8 +32,7 @@ export class AuthGuard implements CanActivate {
       return hasValidAccessToken;
     }
 
-    // TODO: 这里需要配置一下
-    router.navigate(['/account/login'], { state: { redirectUrl: state.url } });
+    router.navigate([AppConfigState.getUrl('login')], { state: { redirectUrl: state.url } });
 
     return true;
   }

@@ -1,4 +1,7 @@
 import { AppConfig } from '../configs';
+import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 export namespace ModelCommon {
 
@@ -6,6 +9,10 @@ export namespace ModelCommon {
     environment: Partial<AppConfig.Environment>;
     skipGetAppConfiguration?: boolean;
     sendNullsAsQueryParam?: boolean;
+  }
+
+  export interface Test {
+    baseHref?: Router;
   }
 
   export type PagedResponse<T> = {
@@ -27,8 +34,17 @@ export namespace ModelCommon {
     [key: string]: T;
   }
 
+  export interface Option<T> {
+    key: Extract<keyof T, string>;
+    value: T[Extract<keyof T, string>];
+  }
+
   export interface BasicItem {
     id: string;
     name: string;
   }
+
+  export type ExtractFromOutput<
+    T extends EventEmitter<any> | Subject<any>
+    > = T extends EventEmitter<infer X> ? X : T extends Subject<infer Y> ? Y : never;
 }

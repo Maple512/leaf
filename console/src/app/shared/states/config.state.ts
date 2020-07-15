@@ -54,9 +54,17 @@ export class AppConfigState {
     return selector;
   }
 
-  static getApiUrl(key?: string) {
+  static getUrl(key: string) {
     const selector = createSelector([AppConfigState], (state: AppConfig.State): string => {
-      return (state.environment.apis[key || 'default'] || state.environment.apis.default).url;
+      return state.environment.urls[key];
+    });
+
+    return selector;
+  }
+
+  static getApi(key?: string) {
+    const selector = createSelector([AppConfigState], (state: AppConfig.State): string => {
+      return state.environment.apis[key];
     });
 
     return selector;
@@ -208,7 +216,7 @@ export class AppConfigState {
   @Action(GetAppConfiguration)
   addData({ patchState, dispatch }: StateContext<AppConfig.State>) {
     const apiName = 'default';
-    const api = this.store.selectSnapshot(AppConfigState.getApiUrl(apiName));
+    const api = this.store.selectSnapshot(AppConfigState.getApi(apiName));
     return this.http
       .get<AppConfigResponse.Response>(`${api}/api/abp/application-configuration`)
       .pipe(

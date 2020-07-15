@@ -25,8 +25,12 @@ export class ConfigStateService {
     return this.store.selectSnapshot(AppConfigState.getDeep(...args));
   }
 
-  getApiUrl(...args: Parameters<typeof AppConfigState.getApiUrl>) {
-    return this.store.selectSnapshot(AppConfigState.getApiUrl(...args));
+  getUrl(...args: Parameters<typeof AppConfigState.getUrl>) {
+    return this.store.selectSnapshot(AppConfigState.getUrl(...args));
+  }
+
+  getApi(...args: Parameters<typeof AppConfigState.getApi>) {
+    return this.store.selectSnapshot(AppConfigState.getApi(...args));
   }
 
   getSetting(...args: Parameters<typeof AppConfigState.getSetting>) {

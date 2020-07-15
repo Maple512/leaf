@@ -19,7 +19,7 @@ export class RestService {
   ) { }
 
   private getApiFromStore(apiName: string): string {
-    return this.store.selectSnapshot(AppConfigState.getApiUrl(apiName));
+    return this.store.selectSnapshot(AppConfigState.getApi(apiName));
   }
 
   handleError(err: any): Observable<any> {
