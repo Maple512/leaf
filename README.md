@@ -1,5 +1,11 @@
 # NgLeaf
 
+![license](https://img.shields.io/github/license/Maple512/leaf)
+![stars](https://img.shields.io/github/stars/Maple512/leaf)
+![issues](https://img.shields.io/github/issues/Maple512/leaf)
+![forks](https://img.shields.io/github/forks/Maple512/leaf)
+![code size](https://img.shields.io/github/languages/code-size/Maple512/leaf)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
