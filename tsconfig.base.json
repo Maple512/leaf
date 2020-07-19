@@ -16,10 +16,14 @@
     "types": ["jest"],
     "paths": {
       "@leaf/ng.core": ["packages/core/src/public-api.ts"],
+      "@leaf/ng.control/shared": ["apps/control/app/shared/index"],
+      "@leaf/ng.control/core": ["apps/control/app/core/index"],
+      "@leaf/ng.control/env/*": ["apps/control/environments/*"]
     }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "enabledIvy":false
   }
 }

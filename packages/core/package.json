@@ -1,11 +1,21 @@
 {
-  "name": "core",
+  "name": "@leaf/ng.core",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maple512/leaf.get"
+  },
   "peerDependencies": {
-    "@angular/common": "^9.1.12",
-    "@angular/core": "^9.1.12"
+    "@angular/localize": "~9.1.11",
+    "@ngxs/router-plugin": "^3.6.2",
+    "@ngxs/storage-plugin": "^3.6.2",
+    "@ngxs/store": "^3.6.2",
+    "angular-oauth2-oidc": "^9.2.2"
   },
   "dependencies": {
     "tslib": "^1.10.0"
+  },
+  "publishConfig": {
+   "access": "public"
   }
 }

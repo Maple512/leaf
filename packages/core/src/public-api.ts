@@ -1,7 +1,18 @@
-/*
- * Public API Surface of core
- */
-
-export * from './lib/core.service';
-export * from './lib/core.component';
+export * from './lib/actions';
+export * from './lib/configs';
+export * from './lib/consts';
+export * from './lib/directives';
+export * from './lib/dtos';
+export * from './lib/guards';
+export * from './lib/interceptors';
+export * from './lib/models';
+export * from './lib/pipes';
+export * from './lib/plugins';
+export * from './lib/services';
+export * from './lib/states';
+export * from './lib/strategies';
+export * from './lib/tokens';
+export * from './lib/utils';
+export * from './lib/validators';
+export * from './lib/localization.module';
 export * from './lib/core.module';

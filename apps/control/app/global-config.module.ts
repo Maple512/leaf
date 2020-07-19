@@ -1,8 +1,8 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { throwIfAlreadyLoaded } from '@core';
 import { DelonMockModule } from '@delon/mock';
 import { AlainThemeModule } from '@delon/theme';
 import { AlainConfig, ALAIN_CONFIG } from '@delon/util';
+import { throwIfAlreadyLoaded } from '@leaf/ng.control/core';
 
 // Please refer to: https://ng-alain.com/docs/global-config
 // #region NG-ALAIN Config
@@ -23,7 +23,7 @@ const alainModules = [AlainThemeModule.forRoot(), DelonACLModule.forRoot(), Delo
 const alainProvides = [{ provide: ALAIN_CONFIG, useValue: alainConfig }];
 
 // mock
-import { environment } from '@env/environment';
+import { environment } from '@leaf/ng.control/env/environment';
 import * as MOCKDATA from '../_mock';
 if (!environment.production) {
   alainConfig.mock = { data: MOCKDATA };

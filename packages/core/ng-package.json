@@ -3,5 +3,13 @@
   "dest": "../../dist/core",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "deleteDestPath": false,
+  "whitelistedNonPeerDependencies": [
+    "@angular/localize",
+    "@ngxs/router-plugin",
+    "@ngxs/storage-plugin",
+    "@ngxs/store",
+    "angular-oauth2-oidc"
+  ]
 }

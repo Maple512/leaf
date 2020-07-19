@@ -11,7 +11,7 @@ export namespace ModelCommon {
     sendNullsAsQueryParam?: boolean;
   }
 
-  export interface Test {
+  export interface TestOptions {
     baseHref?: Router;
   }
 

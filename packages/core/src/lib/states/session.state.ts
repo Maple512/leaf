@@ -11,8 +11,9 @@ import {
 import { OAuthService } from 'angular-oauth2-oidc';
 import { fromEvent } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { GetAppConfiguration, ModifyOpenedTabCount, SetLanguage, SetRemember, SetTenant } from '../actions';
 import { ModelCommon, SessionModel } from '../models';
+import { GetAppConfiguration } from '../actions/config.actions';
+import { ModifyOpenedTabCount, SetLanguage, SetTenant, SetRemember } from '../actions/session.actions';
 
 @State<SessionModel.State>({
   name: 'SessionState',

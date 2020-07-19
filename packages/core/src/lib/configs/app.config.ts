@@ -10,6 +10,7 @@ export namespace AppConfig {
   export interface Environment {
     application: AppInfo;
     production: boolean;
+    useHash?: boolean;
     hmr?: boolean;
     oAuthConfig: AuthConfig;
     apis: Apis;
@@ -29,7 +30,7 @@ export namespace AppConfig {
   }
 
   export interface Apis {
-    console: string;
+    control: string;
     /**
      * default: `/api/abp/application-configuration`
      */

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared';
+import { SharedModule } from '@leaf/ng.control/shared';
 
 import { ExceptionRoutingModule } from './exception-routing.module';
 
@@ -16,4 +16,4 @@ const COMPONENTS_NOROUNT = [];
   declarations: [...COMPONENTS, ...COMPONENTS_NOROUNT],
   entryComponents: COMPONENTS_NOROUNT,
 })
-export class ExceptionModule {}
+export class ExceptionModule { }

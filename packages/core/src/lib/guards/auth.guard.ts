@@ -10,6 +10,7 @@ import {
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Observable } from 'rxjs';
 import { AppConfigState } from '../states';
+import { Store } from '@ngxs/store';
 
 @Injectable({
   providedIn: 'root',
@@ -18,13 +19,14 @@ export class AuthGuard implements CanActivate {
   constructor(
     private oauthService: OAuthService,
     private injector: Injector,
+    private store: Store
   ) { }
 
   canActivate(
     _: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): Observable<boolean> | boolean | UrlTree {
-
+    ;
     const router = this.injector.get(Router);
 
     const hasValidAccessToken = this.oauthService.hasValidAccessToken();
@@ -32,7 +34,9 @@ export class AuthGuard implements CanActivate {
       return hasValidAccessToken;
     }
 
-    router.navigate([AppConfigState.getUrl('login')], { state: { redirectUrl: state.url } });
+    const login = this.store.selectSnapshot(AppConfigState.getUrl('login'));
+
+    router.navigate([login], { state: { redirectUrl: state.url } });
 
     return true;
   }

@@ -215,7 +215,7 @@ export class AppConfigState {
 
   @Action(GetAppConfiguration)
   addData({ patchState, dispatch }: StateContext<AppConfig.State>) {
-    const apiName = 'default';
+    const apiName = 'control';
     const api = this.store.selectSnapshot(AppConfigState.getApi(apiName));
     return this.http
       .get<AppConfigResponse.Response>(`${api}/api/abp/application-configuration`)

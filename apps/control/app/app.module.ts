@@ -29,19 +29,8 @@ const LANG_PROVIDES = [
 // #endregion
 
 // #region JSON Schema form (using @delon/form)
-import { JsonSchemaModule } from '@shared';
-const FORM_MODULES = [ JsonSchemaModule ];
-// #endregion
-
-
-// #region Http Interceptors
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DefaultInterceptor } from '@core';
-import { SimpleInterceptor } from '@delon/auth';
-const INTERCEPTOR_PROVIDES = [
-  { provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptor, multi: true},
-  { provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true}
-];
+import { JsonSchemaModule } from '@leaf/ng.control/shared';
+const FORM_MODULES = [JsonSchemaModule];
 // #endregion
 
 // #region global third module
@@ -49,22 +38,9 @@ const GLOBAL_THIRD_MODULES = [
 ];
 // #endregion
 
-// #region Startup Service
-import { StartupService } from '@core';
-export function StartupServiceFactory(startupService: StartupService) {
-  return () => startupService.load();
-}
-const APPINIT_PROVIDES = [
-  StartupService,
-  {
-    provide: APP_INITIALIZER,
-    useFactory: StartupServiceFactory,
-    deps: [StartupService],
-    multi: true
-  }
-];
-// #endregion
-
+import { environment } from '@leaf/ng.control/env/environment';
+import { LeafCoreModule } from '@leaf/ng.core';
+import { NgxsModule } from '@ngxs/store';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { GlobalConfigModule } from './global-config.module';
@@ -88,12 +64,16 @@ import { STWidgetModule } from './shared/st-widget/st-widget.module';
     RoutesModule,
     STWidgetModule,
     ...FORM_MODULES,
-    ...GLOBAL_THIRD_MODULES
+    ...GLOBAL_THIRD_MODULES,
+    LeafCoreModule.forRoot({
+      environment,
+      sendNullsAsQueryParam: false,
+      skipGetAppConfiguration: false,
+    }),
+    NgxsModule.forRoot(),
   ],
   providers: [
     ...LANG_PROVIDES,
-    ...INTERCEPTOR_PROVIDES,
-    ...APPINIT_PROVIDES
   ],
   bootstrap: [AppComponent]
 })
